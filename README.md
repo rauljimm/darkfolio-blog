@@ -2,8 +2,6 @@
 
 DarkFolio is a modern, responsive Django-based portfolio and blog template with a sleek dark theme and interactive network animation background.
 
-![DarkFolio Screenshot](screenshot.png)
-
 ## ✨ Features
 
 - 🌙 Beautiful dark theme design
@@ -141,8 +139,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-If you have any questions or feedback, please reach out to me at your-email@example.com or visit my website.
+If you have any questions or feedback, please reach out to me at rauljimm.dev@gmail.com or visit my website.
 
 ---
 
-Made with ❤️ by Your Name 
+Made with ❤️ by rauljimm
