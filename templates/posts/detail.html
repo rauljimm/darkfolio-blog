@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} | DarkFolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8 mx-auto">
+            <!-- Post Title and Meta -->
+            <h1 class="section-title">{{ post.title }}</h1>
+            <div class="mb-4">
+                <p class="post-meta">
+                    <i class="far fa-calendar-alt me-2"></i>Published on {{ post.publish|date:"d M, Y" }}
+                </p>
+            </div>
+            
+            <!-- Featured Image -->
+            {% if post.image %}
+                <div class="content-wrapper mb-4 p-0 overflow-hidden">
+                    <img src="{{ post.image.url }}" class="img-fluid w-100" alt="{{ post.title }}">
+                </div>
+            {% endif %}
+            
+            <!-- Post Content -->
+            <div class="content-wrapper mb-5 markdown-content">
+                <article>
+                    {{ post.get_body_as_markdown|safe }}
+                </article>
+            </div>
+            
+            <!-- Share Buttons -->
+            <div class="content-wrapper mb-5">
+                <h4 class="mb-3"><i class="fas fa-share-alt me-2"></i>Share</h4>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="me-3 text-decoration-none text-primary">
+                        <span class="feature-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="me-3 text-decoration-none text-info">
+                        <span class="feature-icon">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="me-3 text-decoration-none text-primary">
+                        <span class="feature-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Post Navigation -->
+            <div class="content-wrapper mb-5">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{% url 'posts:post_list' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Posts -->
+            {% if posts %}
+            <div class="content-wrapper">
+                <h4 class="mb-3"><i class="fas fa-star me-2"></i>You May Also Like</h4>
+                <div class="list-group list-group-flush">
+                    {% for related_post in posts %}
+                        <a href="{{ related_post.get_absolute_url }}" class="list-group-item list-group-item-action d-flex gap-3 align-items-center">
+                            {% if related_post.image %}
+                                <div style="width: 60px; height: 60px; overflow: hidden; border-radius: 5px;">
+                                    <img src="{{ related_post.image.url }}" alt="{{ related_post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            {% else %}
+                                <div style="width: 60px; height: 60px; background-color: var(--dark-surface-3); border-radius: 5px;" class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-file-alt text-primary"></i>
+                                </div>
+                            {% endif %}
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">{{ related_post.title|truncatechars:40 }}</h6>
+                                <small class="post-meta">{{ related_post.publish|date:"d M, Y" }}</small>
+                            </div>
+                        </a>
+                    {% empty %}
+                        <p class="text-center">No related posts available</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

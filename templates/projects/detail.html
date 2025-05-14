@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} | DarkFolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+            <!-- Project Title -->
+            <h1 class="section-title">{{ project.title }}</h1>
+            
+            <!-- Project Meta -->
+            <div class="mb-4">
+                <span class="post-meta">
+                    <i class="fas fa-calendar-check me-2"></i>Created on {{ project.created|date:"d M, Y" }}
+                </span>
+            </div>
+            
+            <!-- Project Links -->
+            <div class="content-wrapper mb-4">
+                {% if project.github or project.url %}
+                    <div class="d-flex flex-wrap gap-3">
+                        {% if project.github %}
+                            <a href="{{ project.github }}" target="_blank" class="btn btn-dark">
+                                <i class="fab fa-github me-2"></i>View on GitHub
+                            </a>
+                        {% endif %}
+                        {% if project.url %}
+                            <a href="{{ project.url }}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>View live project
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Project Image -->
+            {% if project.image %}
+                <div class="content-wrapper mb-4 p-0 overflow-hidden">
+                    <img src="{{ project.image.url }}" class="img-fluid w-100" alt="{{ project.title }}">
+                </div>
+            {% endif %}
+            
+            <!-- Project Description -->
+            <div class="content-wrapper mb-4 markdown-content">
+                <h3 class="mb-3"><i class="fas fa-info-circle me-2"></i>Description</h3>
+                <div>{{ project.get_description_as_markdown|safe }}</div>
+            </div>
+            
+            <!-- Back to Projects -->
+            <div class="content-wrapper mb-5">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{% url 'projects:project_list' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Project Details -->
+            <div class="content-wrapper mb-4">
+                <h4 class="mb-3"><i class="fas fa-clipboard-list me-2"></i>Project Details</h4>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-calendar-plus me-2"></i>Creation Date</span>
+                        <span class="badge bg-primary">{{ project.created|date:"d M, Y" }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-sync-alt me-2"></i>Last Update</span>
+                        <span class="badge bg-primary">{{ project.updated|date:"d M, Y" }}</span>
+                    </li>
+                    {% if project.featured %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-star me-2"></i>Featured Project</span>
+                        <span class="badge bg-warning">Yes</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <!-- Share Project -->
+            <div class="content-wrapper">
+                <h4 class="mb-3"><i class="fas fa-share-alt me-2"></i>Share Project</h4>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="me-3 text-decoration-none text-primary">
+                        <span class="feature-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="me-3 text-decoration-none text-info">
+                        <span class="feature-icon">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="me-3 text-decoration-none text-primary">
+                        <span class="feature-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

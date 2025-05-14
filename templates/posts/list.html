@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog | DarkFolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-12">
+            <h1 class="section-title">
+                <i class="fas fa-book-open me-2"></i>Blog
+            </h1>
+            
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="card mb-4 post-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="card-img-wrapper h-100">
+                                    {% if post.image %}
+                                        <img src="{{ post.image.url }}" class="img-fluid h-100 object-fit-cover" alt="{{ post.title }}">
+                                    {% else %}
+                                        <div class="bg-dark text-center h-100 d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-file-alt fa-3x text-primary"></i>
+                                        </div>
+                                    {% endif %}
+                                    <div class="card-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post.title }}</h5>
+                                    <p class="post-meta">
+                                        <i class="far fa-calendar-alt me-1"></i><strong>Published on:</strong> {{ post.publish|date:"d M, Y" }}
+                                    </p>
+                                    <div class="card-text markdown-content">{{ post.short_body|safe }}</div>
+                                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-angle-right me-1"></i>Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>No posts available yet. Check back soon!
+                </div>
+            {% endif %}
+            
+            <!-- Pagination -->
+            {% if posts.has_other_pages %}
+                <nav aria-label="Page navigation" class="my-4">
+                    <ul class="pagination justify-content-center">
+                        {% if posts.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">&laquo;</span>
+                            </li>
+                        {% endif %}
+                        
+                        {% for i in posts.paginator.page_range %}
+                            {% if posts.number == i %}
+                                <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if posts.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">&raquo;</span>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+
+{% block title %}About Me | DarkFolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title">About Me</h1>
+    
+    <!-- Introduction Section -->
+    <div class="content-wrapper">
+        <div class="row mb-5">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mx-auto mb-4" style="width: 150px; height: 150px;">
+                    <i class="fas fa-user fa-4x"></i>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="mb-3">John Doe</h2>
+                <p class="lead">Software Developer with over 5 years of experience in web development and machine learning applications.</p>
+                <p>
+                    <i class="fas fa-map-marker-alt me-2"></i>New York, USA
+                    <span class="mx-3">|</span>
+                    <i class="fas fa-envelope me-2"></i>john.doe@example.com
+                </p>
+                <div class="mt-4">
+                    <a href="#" class="me-3 text-light"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="#" class="me-3 text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="#" class="me-3 text-light"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <h3 class="mb-4"><i class="fas fa-user-circle me-2"></i>My Journey</h3>
+            <p>Welcome to my portfolio! I'm John, a passionate software developer with a deep love for creating elegant solutions to complex problems. My journey in the world of programming began during my undergraduate studies at MIT, where I discovered my fascination with building things that live on the internet.</p>
+            
+            <p>After graduating with a Bachelor's degree in Computer Science, I pursued a Master's degree at Stanford University, where I specialized in Artificial Intelligence and Software Engineering. During my academic years, I had the opportunity to work on several research projects that helped me develop a strong foundation in both theoretical concepts and practical applications.</p>
+            
+            <p>Throughout my professional career, I've had the privilege of working with amazing teams at various tech companies. Starting at WebSolutions Co. in San Francisco, I honed my skills as a software developer working on web applications and RESTful APIs. This experience was invaluable as it taught me the importance of writing clean, maintainable code and collaborating effectively with cross-functional teams.</p>
+            
+            <p>Currently, I'm working as a Senior Software Developer at TechCorp Inc. in New York, where I lead development for multiple web applications using Django and React. My responsibilities include implementing CI/CD pipelines, managing AWS infrastructure, and mentoring junior developers. This role has allowed me to grow not only as a developer but also as a leader who can guide projects from inception to deployment.</p>
+        </div>
+    </div>
+    
+    <!-- Skills Section -->
+    <div class="content-wrapper">
+        <h3 class="mb-4"><i class="fas fa-laptop-code me-2"></i>What I Do</h3>
+        
+        <p>I specialize in full-stack web development, with a particular focus on building robust, scalable applications that deliver exceptional user experiences. My technical expertise spans across various domains, including:</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="feature-icon me-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="m-0">Web Development</h4>
+                </div>
+                <p>I create responsive, user-friendly websites and web applications using modern frameworks and libraries. My approach focuses on performance, accessibility, and maintainability, ensuring that the end product not only looks great but also functions flawlessly across all devices.</p>
+                <div class="d-flex flex-wrap mt-3">
+                    <span class="technology-badge">Django</span>
+                    <span class="technology-badge">React</span>
+                    <span class="technology-badge">Node.js</span>
+                    <span class="technology-badge">HTML/CSS</span>
+                    <span class="technology-badge">JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="feature-icon me-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4 class="m-0">Database Design</h4>
+                </div>
+                <p>I design and implement efficient database structures that optimize data storage and retrieval. From relational databases to NoSQL solutions, I choose the right tool for each project's specific needs while ensuring data integrity and security throughout the application.</p>
+                <div class="d-flex flex-wrap mt-3">
+                    <span class="technology-badge">PostgreSQL</span>
+                    <span class="technology-badge">MongoDB</span>
+                    <span class="technology-badge">SQLite</span>
+                    <span class="technology-badge">Redis</span>
+                    <span class="technology-badge">SQL</span>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="feature-icon me-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h4 class="m-0">Cloud Infrastructure</h4>
+                </div>
+                <p>I deploy and manage applications on cloud platforms, setting up scalable architectures that can handle varying loads. My experience includes configuring servers, implementing continuous integration/continuous deployment pipelines, and monitoring application performance.</p>
+                <div class="d-flex flex-wrap mt-3">
+                    <span class="technology-badge">AWS</span>
+                    <span class="technology-badge">Docker</span>
+                    <span class="technology-badge">Kubernetes</span>
+                    <span class="technology-badge">Heroku</span>
+                    <span class="technology-badge">CI/CD</span>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="feature-icon me-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="m-0">Machine Learning</h4>
+                </div>
+                <p>I develop machine learning models that extract meaningful insights from data. From classification and regression to more complex deep learning approaches, I can implement solutions that help businesses make data-driven decisions and automate processes.</p>
+                <div class="d-flex flex-wrap mt-3">
+                    <span class="technology-badge">TensorFlow</span>
+                    <span class="technology-badge">Python</span>
+                    <span class="technology-badge">Scikit-Learn</span>
+                    <span class="technology-badge">Pandas</span>
+                    <span class="technology-badge">NumPy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Education Section -->
+    <div class="content-wrapper">
+        <h3 class="mb-4"><i class="fas fa-graduation-cap me-2"></i>Education & Learning</h3>
+        
+        <p>I believe that education is a lifelong journey. My formal education provided me with a strong foundation, but I continue to learn and grow through self-study, online courses, and participation in tech communities.</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">Stanford University</h4>
+                        <p class="post-meta">Master's in Computer Science (2016-2018)</p>
+                        <p>During my time at Stanford, I focused on Artificial Intelligence and Software Engineering, taking courses in machine learning, natural language processing, and distributed systems. My thesis explored the application of deep learning techniques in computer vision for autonomous vehicles.</p>
+                        <p>Key areas of study:</p>
+                        <ul>
+                            <li>Artificial Intelligence fundamentals</li>
+                            <li>Deep Learning architectures</li>
+                            <li>Distributed Computing</li>
+                            <li>Advanced Software Design Patterns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">MIT</h4>
+                        <p class="post-meta">Bachelor's in Computer Science (2012-2016)</p>
+                        <p>My undergraduate education at MIT provided me with a solid foundation in computer science principles. I graduated with honors, completing coursework in algorithms, data structures, computer systems, and programming languages.</p>
+                        <p>Key areas of study:</p>
+                        <ul>
+                            <li>Algorithms and Computational Theory</li>
+                            <li>Data Structures and Programming</li>
+                            <li>Computer Architecture</li>
+                            <li>Software Development Methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4 class="mb-3">Continuous Learning</h4>
+            <p>Beyond formal education, I am committed to staying current with the latest technologies and best practices. I regularly participate in online courses, webinars, and tech conferences. Some of my recent learning experiences include:</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-certificate text-primary me-2"></i>
+                        <span>AWS Certified Solutions Architect</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-certificate text-primary me-2"></i>
+                        <span>TensorFlow Developer Certificate</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-certificate text-primary me-2"></i>
+                        <span>Certified Scrum Master</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Work Philosophy Section -->
+    <div class="content-wrapper">
+        <h3 class="mb-4"><i class="fas fa-lightbulb me-2"></i>My Approach to Development</h3>
+        
+        <p>I believe that great software is not just about writing code—it's about solving real problems for real people. My approach to development is guided by several core principles:</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h4>User-Centered Design</h4>
+                        <p>I always start by understanding the end users and their needs. By empathizing with the people who will actually use the product, I can create solutions that are not only functional but also intuitive and enjoyable to use.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <h4>Pragmatic Solutions</h4>
+                        <p>While I appreciate elegant code and cutting-edge technologies, I prioritize practical solutions that deliver value. I choose the right tools for the job, balancing innovation with reliability and maintainability.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Quality and Security</h4>
+                        <p>I believe in building software that's not only functional but also robust and secure. I incorporate testing throughout the development process and follow best practices for security to protect both data and users.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Continuous Improvement</h4>
+                        <p>I approach every project as an opportunity to learn and grow. By reflecting on past experiences and incorporating feedback, I continuously refine my skills and processes to deliver better results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <div class="content-wrapper">
+        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i>Get in Touch</h3>
+        
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello, I'll try my best to get back to you!</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h5 class="m-0">Email</h5>
+                        <p class="m-0">john.doe@example.com</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center mb-4">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h5 class="m-0">Phone</h5>
+                        <p class="m-0">+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center">
+                    <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h5 class="m-0">Location</h5>
+                        <p class="m-0">New York, USA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h5 class="mb-3">Connect with me on social media</h5>
+                <div class="d-flex flex-wrap">
+                    <a href="#" class="me-3 mb-3 text-decoration-none">
+                        <div class="feature-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <span class="d-block text-center mt-2 text-light">GitHub</span>
+                    </a>
+                    <a href="#" class="me-3 mb-3 text-decoration-none">
+                        <div class="feature-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <span class="d-block text-center mt-2 text-light">LinkedIn</span>
+                    </a>
+                    <a href="#" class="me-3 mb-3 text-decoration-none">
+                        <div class="feature-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <span class="d-block text-center mt-2 text-light">Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

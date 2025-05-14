@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | DarkFolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <h1 class="hero-title display-4">Welcome to My Portfolio</h1>
+                <p class="hero-lead">A space where I share my projects, knowledge and experiences in the world of programming.</p>
+                <div class="mt-4 d-flex flex-wrap gap-3">
+                    <a href="{% url 'posts:post_list' %}" class="btn btn-primary">
+                        <i class="fas fa-book-open me-2"></i>View Blog
+                    </a>
+                    <a href="{% url 'projects:project_list' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-code me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-laptop-code fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="row">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card project-card h-100">
+                            <div class="card-img-wrapper">
+                                {% if project.image %}
+                                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                                {% else %}
+                                    <div class="bg-dark text-center py-5">
+                                        <i class="fas fa-code fa-3x text-primary"></i>
+                                    </div>
+                                {% endif %}
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <div class="card-text markdown-content">{{ project.short_description|safe }}</div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                                <a href="{{ project.get_absolute_url }}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-info-circle me-1"></i>Details
+                                </a>
+                                {% if project.github %}
+                                    <a href="{{ project.github }}" target="_blank" class="btn btn-dark btn-sm">
+                                        <i class="fab fa-github me-1"></i>GitHub
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p>Projects coming soon...</p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'projects:project_list' %}" class="btn btn-outline-primary">
+                <i class="fas fa-project-diagram me-2"></i>View all projects
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Posts -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Latest Posts</h2>
+        <div class="row">
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="col-md-4">
+                        <div class="card h-100 post-card">
+                            <div class="card-img-wrapper">
+                                {% if post.image %}
+                                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                {% else %}
+                                    <div class="bg-dark text-center py-5">
+                                        <i class="fas fa-file-alt fa-3x text-primary"></i>
+                                    </div>
+                                {% endif %}
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="post-meta">
+                                    <i class="far fa-calendar-alt me-1"></i><strong>Published on:</strong> {{ post.publish|date:"d M, Y" }}
+                                </p>
+                                <div class="card-text markdown-content">{{ post.short_body|safe }}</div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-angle-right me-1"></i>Read more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p>Blog posts coming soon...</p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'posts:post_list' %}" class="btn btn-outline-primary">
+                <i class="fas fa-list me-2"></i>View all posts
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %} 
